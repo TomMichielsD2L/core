@@ -42,7 +42,7 @@
   "devDependencies": {
     "@brightspace-ui/visual-diff": "^1.0.0",
     "@polymer/test-fixture": "^4",
-    "axe-core": "^3",
+    "axe-core": "^3.4.0",
     "babel-eslint": "^10",
     "chai": "^4",
     "chalk": "^2.4.2",
