@@ -20,7 +20,6 @@ describe('d2l-button-icon', function() {
 		await visualDiff.resetFocus(page);
 	});
 
-	/*
 	const requestAnimationFrame = (page) => {
 		return page.evaluate(() => {
 			return new Promise((resolve) => {
@@ -28,7 +27,6 @@ describe('d2l-button-icon', function() {
 			});
 		});
 	};
-	*/
 
 	after(() => browser.close());
 
@@ -44,7 +42,7 @@ describe('d2l-button-icon', function() {
 					if (name === 'hover') {
 						if (entry.category === 'translucent-enabled') {
 							await hover(page, '#translucent-enabled > d2l-button-icon');
-							//await requestAnimationFrame(page);
+							await requestAnimationFrame(page);
 						} else {
 							await page.hover(`#${entry.category}`);
 						}
