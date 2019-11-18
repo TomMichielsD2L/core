@@ -20,6 +20,7 @@ describe('d2l-button-icon', function() {
 		await visualDiff.resetFocus(page);
 	});
 
+	/*
 	const requestAnimationFrame = (page) => {
 		return page.evaluate(() => {
 			return new Promise((resolve) => {
@@ -27,6 +28,7 @@ describe('d2l-button-icon', function() {
 			});
 		});
 	};
+	*/
 
 	after(() => browser.close());
 
