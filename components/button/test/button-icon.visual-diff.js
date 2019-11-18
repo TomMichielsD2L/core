@@ -12,7 +12,7 @@ describe('d2l-button-icon', function() {
 		page = await browser.newPage();
 
 		await visualDiff.disableAnimations(page);
-		page.on('console', msg => console.log(msg.text()));
+		//page.on('console', msg => console.log(msg.text()));
 
 		await page.setViewport({width: 800, height: 800, deviceScaleFactor: 2});
 		await page.goto(`${visualDiff.getBaseUrl()}/components/button/test/button-icon.visual-diff.html`, {waitUntil: ['networkidle0', 'load']});
