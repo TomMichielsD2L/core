@@ -10,7 +10,10 @@ describe('d2l-button-icon', function() {
 	before(async() => {
 		browser = await puppeteer.launch();
 		page = await browser.newPage();
-		//await visualDiff.disableAnimations(page);
+
+		await visualDiff.disableAnimations(page);
+		page.on('console', msg => console.log(msg.text()));
+
 		await page.setViewport({width: 800, height: 800, deviceScaleFactor: 2});
 		await page.goto(`${visualDiff.getBaseUrl()}/components/button/test/button-icon.visual-diff.html`, {waitUntil: ['networkidle0', 'load']});
 		await page.bringToFront();
@@ -20,6 +23,7 @@ describe('d2l-button-icon', function() {
 		await visualDiff.resetFocus(page);
 	});
 
+	/*
 	const requestAnimationFrame = (page) => {
 		return page.evaluate(() => {
 			return new Promise((resolve) => {
@@ -27,6 +31,7 @@ describe('d2l-button-icon', function() {
 			});
 		});
 	};
+	*/
 
 	after(() => browser.close());
 
@@ -42,7 +47,7 @@ describe('d2l-button-icon', function() {
 					if (name === 'hover') {
 						if (entry.category === 'translucent-enabled') {
 							await hover(page, '#translucent-enabled > d2l-button-icon');
-							await requestAnimationFrame(page);
+							//await requestAnimationFrame(page);
 						} else {
 							await page.hover(`#${entry.category}`);
 						}
@@ -67,6 +72,20 @@ describe('d2l-button-icon', function() {
 			return new Promise((resolve) => {
 				const elem = document.querySelector(selector);
 				let backgroundTransitioned, boxShadowTransitioned;
+
+				elem.shadowRoot.querySelector('button').addEventListener('transitionrun', (e) => {
+					console.log('transition run');
+				});
+				elem.shadowRoot.querySelector('button').addEventListener('transitionstart', (e) => {
+					console.log('transition start');
+				});
+				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
+					console.log('transition end');
+				});
+				elem.shadowRoot.querySelector('button').addEventListener('transitioncancel', (e) => {
+					console.log('transition cancel');
+				});
+
 				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
 					if (e.propertyName === 'background-color') backgroundTransitioned = true;
 					if (e.propertyName === 'box-shadow') boxShadowTransitioned = true;
