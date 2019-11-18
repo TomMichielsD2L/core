@@ -77,11 +77,11 @@ class ButtonIcon extends ButtonMixin(VisibleOnAncestorMixin(RtlMixin(LitElement)
 				:host([translucent]) button {
 					background-color: rgba(0,0,0,0.5);
 					transition-property: background-color, box-shadow;
-					transition-duration: 0.2s, 0.2s;
+					transition-duration: var(--d2l-transition-duration, 0.2s), var(--d2l-transition-duration, 0.2s);
 					box-shadow: inset 0px 0px 0px 2px transparent, inset 0px 0px 0px 3px transparent;
 				}
 				:host([translucent][visible-on-ancestor]) button {
-					transition-duration: 0.4s, 0.4s;
+					transition-duration: var(--d2l-transition-duration, 0.4s), var(--d2l-transition-duration, 0.4s);
 				}
 				:host([translucent]) .d2l-button-icon {
 					color: white;
