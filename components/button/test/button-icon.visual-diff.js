@@ -74,16 +74,16 @@ describe('d2l-button-icon', function() {
 				let backgroundTransitioned, boxShadowTransitioned;
 
 				elem.shadowRoot.querySelector('button').addEventListener('transitionrun', (e) => {
-					console.log('transition run');
+					console.log(`transitionrun: ${e.propertyName}`);
 				});
 				elem.shadowRoot.querySelector('button').addEventListener('transitionstart', (e) => {
-					console.log('transition start');
+					console.log(`transitionstart: ${e.propertyName}`);
 				});
 				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
-					console.log('transition end');
+					console.log(`transitionend: ${e.propertyName}`);
 				});
 				elem.shadowRoot.querySelector('button').addEventListener('transitioncancel', (e) => {
-					console.log('transition cancel');
+					console.log(`transitioncancel: ${e.propertyName}`);
 				});
 
 				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
