@@ -73,17 +73,17 @@ describe('d2l-button-icon', function() {
 				const elem = document.querySelector(selector);
 				let backgroundTransitioned, boxShadowTransitioned;
 
-				elem.shadowRoot.querySelector('button').addEventListener('transitionrun', (e) => {
-					console.log(`transitionrun: ${e.propertyName}`);
+				elem.shadowRoot.querySelector('button').addEventListener('transitionrun', () => {
+					//console.log(`transitionrun: ${e.propertyName}`);
 				});
-				elem.shadowRoot.querySelector('button').addEventListener('transitionstart', (e) => {
-					console.log(`transitionstart: ${e.propertyName}`);
+				elem.shadowRoot.querySelector('button').addEventListener('transitionstart', () => {
+					//console.log(`transitionstart: ${e.propertyName}`);
 				});
-				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
-					console.log(`transitionend: ${e.propertyName}`);
+				elem.shadowRoot.querySelector('button').addEventListener('transitionend', () => {
+					//console.log(`transitionend: ${e.propertyName}`);
 				});
-				elem.shadowRoot.querySelector('button').addEventListener('transitioncancel', (e) => {
-					console.log(`transitioncancel: ${e.propertyName}`);
+				elem.shadowRoot.querySelector('button').addEventListener('transitioncancel', () => {
+					//console.log(`transitioncancel: ${e.propertyName}`);
 				});
 
 				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
