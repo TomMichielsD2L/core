@@ -73,6 +73,7 @@ describe('d2l-button-icon', function() {
 				const elem = document.querySelector(selector);
 				let backgroundTransitioned, boxShadowTransitioned;
 
+				/*
 				elem.shadowRoot.querySelector('button').addEventListener('transitionrun', () => {
 					//console.log(`transitionrun: ${e.propertyName}`);
 				});
@@ -85,6 +86,7 @@ describe('d2l-button-icon', function() {
 				elem.shadowRoot.querySelector('button').addEventListener('transitioncancel', () => {
 					//console.log(`transitioncancel: ${e.propertyName}`);
 				});
+				*/
 
 				elem.shadowRoot.querySelector('button').addEventListener('transitionend', (e) => {
 					if (e.propertyName === 'background-color') backgroundTransitioned = true;
